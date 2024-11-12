@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:8090"
+      - "8070:8090"
     depends_on:
       cats-db-clswk:
         condition: service_started

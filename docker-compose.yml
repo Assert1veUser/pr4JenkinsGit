@@ -1,0 +1,19 @@
+services:
+  docker-server-clswk:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8090"
+    depends_on:
+      cats-db-clswk:
+        condition: service_started
+
+
+  cats-db-clswk:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=cats_db_clswk
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      
